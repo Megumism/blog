@@ -113,6 +113,16 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
@@ -169,7 +179,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-02-21 22:08:30 / 修改时间：22:20:19" itemprop="dateCreated datePublished" datetime="2020-02-21T22:08:30+08:00">2020-02-21</time>
+              <time title="创建时间：2020-02-21 22:08:30 / 修改时间：22:44:39" itemprop="dateCreated datePublished" datetime="2020-02-21T22:08:30+08:00">2020-02-21</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -196,7 +206,20 @@
       
           <h2 id="hexo-前期安装和配置"><a href="#hexo-前期安装和配置" class="headerlink" title="hexo 前期安装和配置"></a>hexo 前期安装和配置</h2><p>在这里非常感谢@Sufe.曲水的大力协助，新手建站可以直接阅读他的<a href="https://jordan-li.github.io/2020/02/16/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/?nsukey=qpdth%2Be0H6PiuabxyVjIDlQskbmCWhEqv1g5Ggm8lzkjLcqmSoY6J2vksNe5UVxg5XM5j7zupA4nndOP2t6KASsaVzGJyLfVCYULNmJxUAdZAfXl%2FIAAqZ8yDIAhq93qtNQgDV%2F98fB75WO%2FP90lnJyQeDlvO90U230cW58b9k%2FsJb8ALrRSjMXACU8%2Fz50oQpdU9FBcNUncvqsupDKeVw%3D%3D" target="_blank" rel="noopener">从零开始用 Hexo 搭建一个博客</a>，当然可能需要你了解一些 git 的基本操作才能实现<em>将 Hexo 上的博文推到远端</em>的操作，而且熟悉 GitHub page 的话你会发现 repo 的名字其实是随意的。</p>
 <p>但是总的来说，这是一篇非常好的入门教程。</p>
-<h2 id="hexo-server"><a href="#hexo-server" class="headerlink" title="hexo-server"></a>hexo-server</h2><p>以下内容基于<a href="https://hexo.io/zh-cn/docs/server" target="_blank" rel="noopener">官方文档-服务器</a>，更详细的内容当然需要你去官方文档探索。</p>
+<h2 id="主题平滑升级"><a href="#主题平滑升级" class="headerlink" title="主题平滑升级"></a>主题平滑升级</h2><p>虽然 stun 主题崩掉了，但是我意外地发现这个文档写的非常的好！在<a href="https://liuyib.github.io/hexo-theme-stun/zh-CN/advanced/advanced-setting.html#%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7" target="_blank" rel="noopener">新手进阶</a>中作者给出了以下的方案：</p>
+<blockquote>
+<p>更新 Hexo 主题时，一般都会有这样的经历：先将主题目录下的 <code>_config.yml</code> 文件备份，更新完主题后，再将备份的数据复制粘贴还原回去。</p>
+<p>这个过程繁琐又浪费时间，因此我们需要一种友好的更新方式。如果你也经历着这样的痛苦，那么不妨尝试 Hexo 3.0 新增的功能 – <strong>数据文件</strong>。</p>
+<p>Stun 主题利用该功能实现了平滑升级的特性，使用步骤如下：将主题目录下的 <code>_config.yml</code> 文件复制到博客根目录下的 <code>/source/_data/</code> 中，并重命名为主题名称。例如使用 stun 主题，那么就叫做 <code>stun.yml</code> 。如果 <code>source</code> 目录下没有 <code>_data</code> 文件夹请自行创建。</p>
+<p>这两个文件的关系为 <code>stun.yml</code> 覆盖 <code>_config.yml</code>，也就是说，想要修改配置时，只需要修改 <code>stun.yml</code> 里的即可（修改 <code>_config.yml</code> 里的不会生效）。这样就实现了平滑升级，更新时 <code>_config.yml</code> （可能）会更新，而你的配置数据保留在 <code>stun.yml</code> 中。</p>
+<blockquote>
+<p>注意 ！！！</p>
+<p>主题更新后，如果主题目录下的 <code>_config.yml</code> 文件里出现了新的选项，那么你必须从该文件中将它们复制到 <code>/source/_data/stun.yml</code> 中，并设置它们的值为你想要的选项。</p>
+<p>如果你使用了平滑升级这一特性，那么 <code>/themes/stun/_config.yml</code> 和 <code>/source/_data/stun.yml</code> 这两个文件里的选项没有同步，是更新主题后，启动报错的最主要的原因！</p>
+</blockquote>
+</blockquote>
+<h2 id="hexo-server"><a href="#hexo-server" class="headerlink" title="hexo-server"></a>hexo-server</h2><p>嫌弃<code>hexo s</code>还要关？嫌弃<code>hexo d</code>上传慢？利用 hexo-server 就可以持续进行调试了！</p>
+<p>以下内容基于<a href="https://hexo.io/zh-cn/docs/server" target="_blank" rel="noopener">官方文档-服务器</a>，更详细的内容当然需要你去官方文档探索。</p>
 <blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install hexo-server --save</span></span><br><span class="line">+ hexo-server@1.0.0</span><br></pre></td></tr></table></figure>
 
@@ -208,6 +231,14 @@
 
 <h3 id="静态模式"><a href="#静态模式" class="headerlink" title="静态模式"></a>静态模式</h3><p>在静态模式下，服务器只处理 public 文件夹内的文件，而不会处理文件变动，在执行时，您应该先自行执行 hexo generate，此模式通常用于生产环境（production mode）下。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server -s</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="一个顺带的-git-收获"><a href="#一个顺带的-git-收获" class="headerlink" title="一个顺带的 git 收获"></a>一个顺带的 git 收获</h2><p>对于 git 在 clone 时出现的错误<code>error: RPC failed; curl transfer closed with outstanding read data remaining</code>，StackOverflow 上有一位老哥给出了很好的解决方案：</p>
+<blockquote>
+<p>When I tried cloning from the remote, got the same issue repeatedly:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">remote: Counting objects: 182, done.</span><br><span class="line">remote: Compressing objects: 100% (149&#x2F;149), done.</span><br><span class="line">error: RPC failed; curl 18 transfer closed with outstanding read data remaining</span><br><span class="line">fatal: The remote end hung up unexpectedly</span><br><span class="line">fatal: early EOF</span><br><span class="line">fatal: index-pack failed</span><br></pre></td></tr></table></figure>
+
+<p>Finally this worked for me:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git <span class="built_in">clone</span> https://username@bitbucket.org/repositoryName.git --depth 1</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 
       
@@ -470,12 +501,16 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">分类</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
         <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">标签</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
