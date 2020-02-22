@@ -16,7 +16,7 @@
   <meta name="description" content="社蕙先生在互联网上的居所">
   <meta name="author" content="社蕙">
   <meta name="keywords" content="">
-  <title>标签 ~ 社蕙主义</title>
+  <title>编码与解码 ~ 社蕙主义</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -114,7 +114,7 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="view intro-2" id="background" false
          style="background: url('/img/pixiv/63150612_p0.png')no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -124,6 +124,41 @@
               
             </span>
 
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期六, 二月 22日 2020, 11:12 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    739 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      3 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -135,22 +170,114 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="text-center tagcloud">
-  <a href="/tags/COVID-19/" style="font-size: 15px; color: #bbe">COVID-19</a> <a href="/tags/Hexo/" style="font-size: 30px; color: #337ab7">Hexo</a> <a href="/tags/JS/" style="font-size: 15px; color: #bbe">JS</a> <a href="/tags/Javascript/" style="font-size: 15px; color: #bbe">Javascript</a> <a href="/tags/%E4%BB%A3%E7%A0%81/" style="font-size: 15px; color: #bbe">代码</a> <a href="/tags/%E5%8F%8B%E4%BA%BA/" style="font-size: 15px; color: #bbe">友人</a> <a href="/tags/%E6%97%B6%E8%AF%84/" style="font-size: 15px; color: #bbe">时评</a> <a href="/tags/%E9%85%8D%E7%BD%AE/" style="font-size: 15px; color: #bbe">配置</a>
-</div>
-              </div>
-            </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h2><p>在这篇文章<a href="https://jerryc.me/posts/f5f84b52/#%E9%97%9C%E6%96%BC%E5%AD%97%E7%AC%A6%E7%B7%A8%E7%A2%BC%EF%BC%8C%E4%BD%A0%E6%89%80%E9%9C%80%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%EF%BC%88ASCII-Unicode-Utf-8-GB2312%E2%80%A6%EF%BC%89" target="_blank" rel="noopener">關於字符編碼，你所需要知道的（ASCII,Unicode,Utf-8,GB2312…）</a>中，作者很详尽地解释了字符集、字符码和相关的一些标准。可以概括总结一下：</p>
+<blockquote>
+<ul>
+<li>中國人民通過對 ASCII 編碼的中文擴充改造，產生了 GB2312 編碼，可以表示 6000 多個常用漢字。</li>
+<li>漢字實在是太多了，包括繁體和各種字符，於是產生了 GBK 編碼，它包括了 GB2312 中的編碼，同時擴充了很多。</li>
+<li>中國是個多民族國家，各個民族幾乎都有自己獨立的語言系統，為了表示那些字符，繼續把 GBK 編碼擴充為 GB18030 編碼。</li>
+<li>每個國家都像中國一樣，把自己的語言編碼，於是出現了各種各樣的編碼，如果你不安裝相應的編碼，就無法解釋相應編碼想表達的內容。</li>
+<li>終於，有個叫 ISO 的組織看不下去了。他們一起創造了一種編碼 UNICODE ，這種編碼非常大，大到可以容納世界上任何一個文字和標誌。所以只要電腦上有 UNICODE 這種編碼系統，無論是全球哪種文字，只需要保存文件的時候，保存成 UNICODE 編碼就可以被其他電腦正常解釋。</li>
+<li>UNICODE 在網絡傳輸中，出現了兩個標準 UTF-8 和 UTF-16，分別每次傳輸 8 個位和 16 個位。於是就會有人產生疑問，UTF-8 既然能保存那麼多文字、符號，為什麼國內還有這麼多使用 GBK 等編碼的人？因為 UTF-8 等編碼體積比較大，佔電腦空間比較多，如果面向的使用人羣絕大部分都是中國人，用 GBK 等編碼也可以。</li>
+</ul>
+</blockquote>
+<h2 id="JS-编码与解码"><a href="#JS-编码与解码" class="headerlink" title="JS 编码与解码"></a>JS 编码与解码</h2><p>不论是前后端，还是前端页面之间，用 URL 传参不可避免地要转换 UTF-8 编码。JS 中主要要用到两个函数：<code>encodeURIComponent</code>和<code>decodeURIComponent</code>，效果如下面的代码所示：</p>
+<pre><code class="js">const origin = &quot;字符串String001&quot;;
+console.log(origin); //字符串String001
+let originEn = encodeURIComponent(origin);
+console.log(originEn); //%E5%AD%97%E7%AC%A6%E4%B8%B2String001
+let origenDe = decodeURIComponent(originEn);
+console.log(origenDe); //字符串String001</code></pre>
+<p>可以发现，上面的转换是不太全面的，那么在参考文章<a href="https://blog.csdn.net/swimming_in_IT_/article/details/81117514" target="_blank" rel="noopener">Js 中进行 utf-8 的编码和解码</a>中，作者给出了套完全转换的 js 函数：</p>
+<pre><code class="js">function encodeUtf8(text) {
+  const code = encodeURIComponent(text);
+  const bytes = [];
+  for (var i = 0; i &lt; code.length; i++) {
+    const c = code.charAt(i);
+    if (c === &quot;%&quot;) {
+      const hex = code.charAt(i + 1) + code.charAt(i + 2);
+      const hexVal = parseInt(hex, 16);
+      bytes.push(hexVal);
+      i += 2;
+    } else bytes.push(c.charCodeAt(0));
+  }
+  return bytes;
+}</code></pre>
+<pre><code class="js">function decodeUtf8(bytes) {
+  var encoded = &quot;&quot;;
+  for (var i = 0; i &lt; bytes.length; i++) {
+    encoded += &quot;%&quot; + bytes[i].toString(16);
+  }
+  return decodeURIComponent(encoded);
+}</code></pre>
+<p>下面是使用示例：</p>
+<pre><code class="js">var array = encodeUtf8(&quot;字符串String001&quot;);
+console.log(array); //(18) [229, 173, 151, 231, 172, 166, 228, 184, 178, 83, 116, 114, 105, 110, 103, 48, 48, 49]
+var content = decodeUtf8(array);
+console.log(content); //字符串String001</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0">笔记</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Javascript">Javascript</a>
+                
+                  <a class="hover-with-bg" href="/tags/%E4%BB%A3%E7%A0%81">代码</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -229,6 +356,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smoothscroll/SmoothScroll.min.js" ></script>
@@ -269,7 +401,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签&nbsp;",
+        "编码与解码&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
