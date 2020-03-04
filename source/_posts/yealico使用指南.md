@@ -1,6 +1,6 @@
 ---
 title: yealico使用指南
-index_img: /img/covers/
+index_img: /img/covers/yealicoApp
 categories: 配置
 date: 2020-03-04 20:19:24
 tags:
