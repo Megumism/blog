@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>yealico使用指南</title>
+    <link href="/2020/03/04/yealico%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
+    <url>/2020/03/04/yealico%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</url>
+    
+    <content type="html"><![CDATA[<p><a href="https://apps.apple.com/cn/app/yealico/id1359000639" target="_blank" rel="noopener">Yealico</a>是一个个性化定制的阅读平台。它可以将资讯、报纸、杂志、图片等众多网页内容，按照用户意愿聚合到一起，再通过简洁精美的排版风格，让用户享受极致的阅读体验。</p><p>下面的教程精简自<a href="https://yealicositemarket.home.blog/" target="_blank" rel="noopener">Yealico小小站</a>，感谢一切为互联网变得更好而努力的人们。</p><a id="more"></a><h2 id="导入站点规则"><a href="#导入站点规则" class="headerlink" title="导入站点规则"></a>导入站点规则</h2><p>iOS用户可以从App Store获取<a href="https://apps.apple.com/cn/app/yealico/id1359000639" target="_blank" rel="noopener">Yealico</a>，然后打开Yealico并扫描下方二维码导入站点规则，即可把网站的内容搬到iOS设备上直接浏览，还可以收藏或下载自己喜欢的内容，方便快捷。</p><p>例如：</p><blockquote><p>E-hentai二维码：<br><img src="https://yealicositemarkethome.files.wordpress.com/2019/12/img_4016.jpg?w=400" srcset="/img/loading.gif" alt="E-hentai"></p></blockquote><h2 id="编辑cookies"><a href="#编辑cookies" class="headerlink" title="编辑cookies"></a>编辑cookies</h2><p>Yealico最近更新的两个版本，添加了蛮多使用功能的，其中一个就是自定义Cookie。</p><p>有些网友可能不太明白Cookie的用处。简单点说就是账号登录后，一般都会保留登录信息到这个Cookie中，以便网站验证你的身份。因此，这个功能对于需要登录的网站来说还是特别有用的。</p><p>下面以exhentai为例介绍这一过程。</p><p><img src="https://yealicositemarkethome.files.wordpress.com/2019/12/img_4015.jpg?w=400" srcset="/img/loading.gif" alt="exhentai"></p><h3 id="获得cookies"><a href="#获得cookies" class="headerlink" title="获得cookies"></a>获得cookies</h3><p>e站的cookies格式：</p><blockquote><p>igneous=015e91709; ipb_member_id=账号ID; ipb_pass_hash=870ffccbf3256454fca21824a98de22a; yay=louder</p></blockquote><p>其中包含了四个参数，分别是：igneous、ipb_member_id、ipb_pass_hash和yay。</p><p>下面以PC版的Chrome说明一下，如何找打Cookie。</p><ol><li>正常登录exhentai网站首页后，右击网页选择“检查”（F12/Ctrl+Shift+I)打开控制台窗口；</li><li>点击上面的Network按钮，然后刷新网页，我们会在检查窗口的左边栏看到一些文件名，继续点击选择exhentai.org（可能需要Ctrl+R刷新一次）；</li><li>此时右边栏会显示exhentai.org的一些相关信息，我们需要的Cookie在header这一栏；</li></ol><p>唯一不同的是，Yealico第四个参数是yay，而桌面Chrome的是sk。直接把桌面Chrome的Cookie复制到规则中的自定义Cookie一栏也是可以正常浏览的。当然也可以只复制igneous、ipb_member_id、ipb_pass_hash三个参数，然后自己加上yay=louder。</p><h3 id="写入cookies"><a href="#写入cookies" class="headerlink" title="写入cookies"></a>写入cookies</h3><p>将上面的cookie复制到下面的位置，刷新，即可使用。<br><img src="/img/yealico/step1.jpg" srcset="/img/loading.gif" alt="step"><br><img src="/img/yealico/step2.jpg" srcset="/img/loading.gif" alt="step"></p><h3 id="关于更多"><a href="#关于更多" class="headerlink" title="关于更多"></a>关于更多</h3><p>更多的站点规则列表可以参见<a href="https://yealicositemarket.home.blog/%E7%AB%99%E7%82%B9%E8%A7%84%E5%88%99%E5%88%97%E8%A1%A8/" target="_blank" rel="noopener">Yealico小小站的这篇文章</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>配置</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>yealico</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>高中时期的个人设计</title>
     <link href="/2020/02/23/%E9%AB%98%E4%B8%AD%E6%97%B6%E6%9C%9F%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%AE%BE%E8%AE%A1/"/>
     <url>/2020/02/23/%E9%AB%98%E4%B8%AD%E6%97%B6%E6%9C%9F%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%AE%BE%E8%AE%A1/</url>
@@ -62,12 +87,12 @@
     <link href="/2020/02/22/Hexo%E4%B8%BB%E9%A2%98%E4%B8%8E%E8%BF%9B%E9%98%B6/"/>
     <url>/2020/02/22/Hexo%E4%B8%BB%E9%A2%98%E4%B8%8E%E8%BF%9B%E9%98%B6/</url>
     
-    <content type="html"><![CDATA[<p>关于配置、改进、创造 Hexo 主题的笔记。</p><blockquote><p>当你看到你用的主题出现在两个以上的博客的时候，那你就要考虑自己写一个了。</p></blockquote><p>操蛋的是，我的前端水平还不够。</p><a id="more"></a><h2 id="Hexo-主题的优化配置"><a href="#Hexo-主题的优化配置" class="headerlink" title="Hexo 主题的优化配置"></a>Hexo 主题的优化配置</h2><h3 id="主题平滑升级"><a href="#主题平滑升级" class="headerlink" title="主题平滑升级"></a>主题平滑升级</h3><p>虽然 stun 主题崩掉了，但是我意外地发现这个文档写的非常的细致！在<a href="https://liuyib.github.io/hexo-theme-stun/zh-CN/advanced/advanced-setting.html#%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7" target="_blank" rel="noopener">新手进阶</a>中作者给出了以下的方案：</p><blockquote><p>更新 Hexo 主题时，一般都会有这样的经历：先将主题目录下的 <code>_config.yml</code> 文件备份，更新完主题后，再将备份的数据复制粘贴还原回去。</p><p>这个过程繁琐又浪费时间，因此我们需要一种友好的更新方式。如果你也经历着这样的痛苦，那么不妨尝试 Hexo 3.0 新增的功能 – <strong>数据文件</strong>。</p><p>Stun 主题利用该功能实现了平滑升级的特性，使用步骤如下：将主题目录下的 <code>_config.yml</code> 文件复制到博客根目录下的 <code>/source/_data/</code> 中，并重命名为主题名称。例如使用 stun 主题，那么就叫做 <code>stun.yml</code> 。如果 <code>source</code> 目录下没有 <code>_data</code> 文件夹请自行创建。</p><p>这两个文件的关系为 <code>stun.yml</code> 覆盖 <code>_config.yml</code>，也就是说，想要修改配置时，只需要修改 <code>stun.yml</code> 里的即可（修改 <code>_config.yml</code> 里的不会生效）。这样就实现了平滑升级，更新时 <code>_config.yml</code> （可能）会更新，而你的配置数据保留在 <code>stun.yml</code> 中。</p><blockquote><p>注意 ！！！</p><p>主题更新后，如果主题目录下的 <code>_config.yml</code> 文件里出现了新的选项，那么你必须从该文件中将它们复制到 <code>/source/_data/stun.yml</code> 中，并设置它们的值为你想要的选项。</p><p>如果你使用了平滑升级这一特性，那么 <code>/themes/stun/_config.yml</code> 和 <code>/source/_data/stun.yml</code> 这两个文件里的选项没有同步，是更新主题后，启动报错的最主要的原因！</p></blockquote></blockquote><p>另外，对于特定的主题请看对应的文档！对于 fluid 主题，他的命名是<code>fluid_config.yml</code>。</p><h2 id="Hexo-theme-next-的下载与改进"><a href="#Hexo-theme-next-的下载与改进" class="headerlink" title="Hexo-theme-next 的下载与改进"></a>Hexo-theme-next 的下载与改进</h2><p>这些文章暂且马克在这里，其实我对 next 还是有点抵触的，但无奈于它迭代比较多也比较稳定，所以先用着吧。</p><ul><li><a href="https://www.jianshu.com/p/9f0e90cc32c2" target="_blank" rel="noopener">简书-Hexo-NexT 配置超炫网页效果</a></li><li><a href="https://blog.csdn.net/qq_33840251/article/details/90712422" target="_blank" rel="noopener">CSDN-Hexo 的 Next 主题详细配置</a></li><li><a href="http://theme-next.iissnan.com/getting-started.html#theme-settings" target="_blank" rel="noopener">iissnan 大佬写的中文老版本文档</a></li><li><a href="https://theme-next.org/" target="_blank" rel="noopener">Next 官方相当于什么都没说的破烂文档</a></li></ul><h2 id="Hexo-theme-的编写"><a href="#Hexo-theme-的编写" class="headerlink" title="Hexo-theme 的编写"></a>Hexo-theme 的编写</h2><p>希望有一天，我可以做出 Hexo 的主题叭……</p><ul><li><a href="https://molunerfinn.com/make-a-hexo-theme/#%E5%89%8D%E8%A8%80" target="_blank" rel="noopener">Melody 开发者写的 Hexo 主题开发经验杂谈</a></li><li><a href="https://www.cnblogs.com/yyhh/p/11058985.html" target="_blank" rel="noopener">Hexo 主题开发</a><br>上面的文档写的很详细，不过按他的步骤已经行不通了，还是要先用一个生成主题目录结构的脚手架工具<code>yeoman</code>：</li><li><a href="https://www.m-finder.com/2018/08/30/about-web-view/" target="_blank" rel="noopener">前端之路多坎坷 - hexo 主题开发历程</a></li><li><a href="https://www.ahonn.me/blog/create-a-hexo-theme-from-scratch" target="_blank" rel="noopener">从零开始制作 Hexo 主题</a></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>关于配置、改进、创造 Hexo 主题的笔记。</p><blockquote><p>当你看到你用的主题出现在两个以上的博客的时候，那你就要考虑自己写一个了。</p></blockquote><p>操蛋的是，我的前端水平还不够。</p><a id="more"></a><h2 id="Hexo-主题的优化配置"><a href="#Hexo-主题的优化配置" class="headerlink" title="Hexo 主题的优化配置"></a>Hexo 主题的优化配置</h2><h3 id="主题平滑升级"><a href="#主题平滑升级" class="headerlink" title="主题平滑升级"></a>主题平滑升级</h3><p>虽然 stun 主题崩掉了，但是我意外地发现这个文档写的非常的细致！在<a href="https://liuyib.github.io/hexo-theme-stun/zh-CN/advanced/advanced-setting.html#%E5%B9%B3%E6%BB%91%E5%8D%87%E7%BA%A7" target="_blank" rel="noopener">新手进阶</a>中作者给出了以下的方案：</p><blockquote><p>更新 Hexo 主题时，一般都会有这样的经历：先将主题目录下的 <code>_config.yml</code> 文件备份，更新完主题后，再将备份的数据复制粘贴还原回去。</p><p>这个过程繁琐又浪费时间，因此我们需要一种友好的更新方式。如果你也经历着这样的痛苦，那么不妨尝试 Hexo 3.0 新增的功能 – <strong>数据文件</strong>。</p><p>Stun 主题利用该功能实现了平滑升级的特性，使用步骤如下：将主题目录下的 <code>_config.yml</code> 文件复制到博客根目录下的 <code>/source/_data/</code> 中，并重命名为主题名称。例如使用 stun 主题，那么就叫做 <code>stun.yml</code> 。如果 <code>source</code> 目录下没有 <code>_data</code> 文件夹请自行创建。</p><p>这两个文件的关系为 <code>stun.yml</code> 覆盖 <code>_config.yml</code>，也就是说，想要修改配置时，只需要修改 <code>stun.yml</code> 里的即可（修改 <code>_config.yml</code> 里的不会生效）。这样就实现了平滑升级，更新时 <code>_config.yml</code> （可能）会更新，而你的配置数据保留在 <code>stun.yml</code> 中。</p><blockquote><p>注意 ！！！</p><p>主题更新后，如果主题目录下的 <code>_config.yml</code> 文件里出现了新的选项，那么你必须从该文件中将它们复制到 <code>/source/_data/stun.yml</code> 中，并设置它们的值为你想要的选项。</p><p>如果你使用了平滑升级这一特性，那么 <code>/themes/stun/_config.yml</code> 和 <code>/source/_data/stun.yml</code> 这两个文件里的选项没有同步，是更新主题后，启动报错的最主要的原因！</p></blockquote></blockquote><p>另外，对于特定的主题请看对应的文档！对于 fluid 主题，他的命名是<code>fluid_config.yml</code>。</p><h2 id="Hexo-theme-next-的下载与改进"><a href="#Hexo-theme-next-的下载与改进" class="headerlink" title="Hexo-theme-next 的下载与改进"></a>Hexo-theme-next 的下载与改进</h2><p>这些文章暂且马克在这里，其实我对 next 还是有点抵触的，但无奈于它迭代比较多也比较稳定，所以先用着吧。</p><ul><li><a href="https://www.jianshu.com/p/9f0e90cc32c2" target="_blank" rel="noopener">简书-Hexo-NexT 配置超炫网页效果</a></li><li><a href="https://blog.csdn.net/qq_33840251/article/details/90712422" target="_blank" rel="noopener">CSDN-Hexo 的 Next 主题详细配置</a></li><li><a href="http://theme-next.iissnan.com/getting-started.html#theme-settings" target="_blank" rel="noopener">iissnan 大佬写的中文老版本文档</a></li><li><a href="https://theme-next.org/" target="_blank" rel="noopener">Next 官方相当于什么都没说的破烂文档</a></li></ul><h2 id="Hexo-theme-的编写"><a href="#Hexo-theme-的编写" class="headerlink" title="Hexo-theme 的编写"></a>Hexo-theme 的编写</h2><p>希望有一天，我可以做出 Hexo 的主题叭……</p><ul><li><a href="https://www.jianshu.com/p/4b9ee8fec3a3" target="_blank" rel="noopener">简书-搭建Hexo博客进阶篇—主题自定义（三）</a></li><li><a href="https://molunerfinn.com/make-a-hexo-theme/#%E5%89%8D%E8%A8%80" target="_blank" rel="noopener">Melody 开发者写的 Hexo 主题开发经验杂谈</a></li><li><a href="https://www.cnblogs.com/yyhh/p/11058985.html" target="_blank" rel="noopener">Hexo 主题开发</a><br>上面的文档写的很详细，不过按他的步骤已经行不通了，还是要先用一个生成主题目录结构的脚手架工具<code>yeoman</code>：</li><li><a href="https://www.m-finder.com/2018/08/30/about-web-view/" target="_blank" rel="noopener">前端之路多坎坷 - hexo 主题开发历程</a></li><li><a href="https://www.ahonn.me/blog/create-a-hexo-theme-from-scratch" target="_blank" rel="noopener">从零开始制作 Hexo 主题</a></li></ul>]]></content>
     
     
     <categories>
       
-      <category>笔记</category>
+      <category>配置</category>
       
     </categories>
     
@@ -92,7 +117,7 @@
     
     <categories>
       
-      <category>笔记</category>
+      <category>配置</category>
       
     </categories>
     
@@ -100,8 +125,6 @@
     <tags>
       
       <tag>Hexo</tag>
-      
-      <tag>配置</tag>
       
     </tags>
     
