@@ -132,7 +132,7 @@
                   
                   &nbsp;<i class="far fa-chart-bar"></i>
                   <span class="post-count">
-                    1.1k 字
+                    1.2k 字
                   </span>&nbsp;
                 
 
@@ -140,7 +140,7 @@
                   
                   &nbsp;<i class="far fa-clock"></i>
                   <span class="post-count">
-                      3 分钟
+                      4 分钟
                   </span>&nbsp;
                 
 
@@ -188,6 +188,8 @@
 <ul>
 <li><a href="https://blog.csdn.net/weixin_30456039/article/details/95240184" target="_blank" rel="noopener">动态加载 js 文件，并在加载成功后执行回调函数</a>：从而在网页段加载该外部的 js 包。</li>
 <li><a href="https://blog.csdn.net/u013970232/article/details/89146426" target="_blank" rel="noopener">基于 jq 和纯 js 的 读取本地.txt 文件的方法</a>：稍作一点改动就可以实现读取 markdown，毕竟都是文本文件嘛。</li>
+<li><a href="https://blog.csdn.net/weixin_34387468/article/details/92473457?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">动态加载js文件的正确姿势</a>这是一篇很完善的技术文档。</li>
+<li><a href="https://blog.csdn.net/a3025056/article/details/73614554" target="_blank" rel="noopener">如何在js文件中动态加载另一个js文件？</a></li>
 </ul>
 <p>接下来我们用一点魔法……啊不，是写一点 js 对 markdown 做一些预处理（比如将 h1 和正文分离，移除 TOC），之后再交给 showdown 解析。那么做到这里，我的文章页（也就是你现在正在读的这一页）已经实现了动态显示。</p>
 <h2 id="第二步-实现文章的自动加载——让吉普赛人自己学会找手稿"><a href="#第二步-实现文章的自动加载——让吉普赛人自己学会找手稿" class="headerlink" title="第二步 实现文章的自动加载——让吉普赛人自己学会找手稿"></a>第二步 实现文章的自动加载——让吉普赛人自己学会找手稿</h2><p>但是我仍然面临一个问题，就是文章页具有了读取 md 的能力，但它不知道读什么，这就需要目录页把要读的文件名称传给它，下面是为了实现这一点所用到的技术贴：</p>
