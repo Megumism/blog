@@ -16,7 +16,7 @@
   <meta name="description" content="社蕙先生在互联网上的居所">
   <meta name="author" content="社蕙">
   <meta name="keywords" content="">
-  <title>归档 ~ 社蕙主义</title>
+  <title>用Arduino唱歌 ~ 社蕙主义</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -39,7 +39,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -108,7 +108,7 @@
   </div>
 </nav>
 
-    <div class="view intro-2" id="background" parallax=true
+    <div class="view intro-2" id="background" false
          style="background: url('/img/pixiv/63150612_p0.png')no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
@@ -118,6 +118,41 @@
               
             </span>
 
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期四, 四月 9日 2020, 9:34 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    658 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      3 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -129,35 +164,192 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 15 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/01/22/%E4%BC%81%E9%B9%85%E5%85%AC%E8%B7%AF%E5%BD%B1%E8%AF%84/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">企鹅公路影评</span>
-      <span style="float: right;">01-22</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <p>有音响的地方，就应该有 Bad Apple。</p>
+<a id="more"></a>
 
-              </div>
-            </div>
+<h2 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h2><p>&emsp;&emsp;按照<strong>十二平均律系统</strong>，我们可以以 f 为基准音，在区间[f,2f]内得到 13 个不同的单音，它们的频率分别为：$f\times2^{\frac{0}{12}}$，$f\times2^{\frac{1}{12}}$，…，$f\times2^{\frac{12}{12}}$，f 可以视为 $f\times2^{\frac{0}{12}}$，2f 可以视为 $f\times2^{\frac{0}{12}}$。如果将 f 设定为 440Hz <strong>(即中央 C 右侧的第一个 A)</strong>，从 f 到 2f 这 13 个单音的频率就可以用前述公式算出。</p>
+<h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><p>主调映射：</p>
+<pre><code class="Cpp">enum TONE {C,UC,D,UD,E,F,UF,G,UG,A,UA,B};
+int ToneX(enum TONE main, int SoundIN, bool up) //主调映射函数
+{
+    int Sound2Tone;
+    int Sound2Height;
+    int SoundOUT;
+    if (SoundIN &gt;= 0){
+        Sound2Tone = SoundIN % 10;
+        Sound2Height = SoundIN / 10;
+    }
+    else{
+        Sound2Tone = (-SoundIN) % 10;
+        Sound2Height = -(((-SoundIN) / 10) + 1);
+        // Serial.println(Sound2Tone);
+        // Serial.println(Sound2Height);
+    }
+    //从简谱到五线谱的映射
+    if (Sound2Tone == 1)
+        Sound2Tone = 0;
+    else if (Sound2Tone == 2)
+        Sound2Tone = 2;
+    else if (Sound2Tone == 3)
+        Sound2Tone = 4;
+    else if (Sound2Tone == 4)
+        Sound2Tone = 5;
+    else if (Sound2Tone == 5)
+        Sound2Tone = 7;
+    else if (Sound2Tone == 6)
+        Sound2Tone = 9;
+    else if (Sound2Tone == 7)
+        Sound2Tone = 11;
+    SoundOUT = main - A + up + Sound2Tone + Sound2Height * 12;
+    //主调-A调（因为以fA=440Hz计算的音律）+升调+距离中央A的距离
+    return int(pow(2, SoundOUT / 12.0) * 440.0 + 0.5);
+    //这里加0.5实现四舍五入
+}</code></pre>
+<p>歌唱处理：</p>
+<pre><code class="Cpp">//
+void Sing(enum TONE Main, float Song[], int length, int beat)
+//主调 歌谱数列 歌谱长度 最小单元长度（ms）
+{
+    int sing;
+    bool up;
+    for (int i = 0; i &lt; length; i++)
+    {
+        if (Song[i] != 0)
+        {
+            if (int(Song[i] * 2) % 2)
+            //这里判断传进来的数字有没有0.5的尾数，如果有，升半调
+                up = true;
+            else
+                up = false;
+            sing = Song[i];
+            tone(singer, ToneX(Main, sing, up));
+        }
+        else
+            noTone(singer);//休止
+        delay(beat);
+    }
+}</code></pre>
+<p>最后附上歌谱：</p>
+<pre><code class="cpp">Sing(UF, sizeof(BadApple) / sizeof(BadApple[0]), length, 210);
+//当然这个放到数组后面去，这里提前是为了看的方便
+//另外要注意，一定要除一个sizeof(a[0])，不然就等着溢出吧
+float BadApple[] = {
+    -6, -7, 1, 2, 3, 3, 6, 5,
+    3, 3, -6, -6, 3, 2, 1, -7,
+    -6, -7, 1, 2, 3, 3, 2, 1,
+    -7, -6, -7, 1, -7, -6, -5.5, -7,
+
+    -6, -7, 1, 2, 3, 3, 6, 5,
+    3, 3, -6, -6, 3, 2, 1, -7,
+    -6, -7, 1, 2, 3, 3, 2, 1,
+    -7, -7, 1, 1, 2, 2, 3, 3,
+
+    5, 6, 3, 2, 3, 3, 2, 3,
+    5, 6, 3, 2, 3, 3, 2, 3,
+    2, 1, -7, -5, -6, -6, -5, -6,
+    -7, 1, 2, 3, -6, -6, 3, 5,
+
+    5, 6, 3, 2, 3, 3, 2, 3,
+    5, 6, 3, 2, 3, 3, 2, 3,
+    2, 1, -7, -5, -6, -6, -5, -6,
+    -7, 1, 2, 3, -6, -6, 3, 5,
+
+    5, 6, 3, 2, 3, 3, 2, 3,
+    5, 6, 3, 2, 3, 3, 2, 3,
+    2, 1, -7, -5, -6, -6, -5, -6,
+    -7, 1, 2, 3, -6, -6, 3, 5,
+
+    5, 6, 3, 2, 3, 3, 2, 3,
+    5, 6, 3, 2, 3, 3, 6, 7,
+    11, 7, 6, 5, 3, 3, 2, 3,
+    2, 1, -7, -5, -6, -6, 3, 5};</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3">技术文档</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/C++">C++</a>
+                
+                  <a class="hover-with-bg" href="/tags/Arduino">Arduino</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+   <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80ODc2Mi8yNTI1Ng==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+  
+  
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -236,6 +428,11 @@
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
 
   <script src="/lib/smoothscroll/SmoothScroll.min.js" ></script>
@@ -294,7 +491,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "用Arduino唱歌&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
